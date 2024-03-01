@@ -40,4 +40,11 @@ class UserRoleTest extends TestCase
 
         $user = UserRole::from($undefined);
     }
+
+    public function test_type(): void
+    {
+        $userRole = UserRole::ADMIN;
+
+        $this->assertTrue($userRole instanceof UserRole);
+    }
 }
