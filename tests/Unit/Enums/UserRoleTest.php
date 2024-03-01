@@ -96,4 +96,13 @@ class UserRoleTest extends TestCase
 
         $this->assertEquals($roleAdmin, $deserialized);
     }
+
+    public function test_json_serialization(): void
+    {
+        $roleAdmin = UserRole::ADMIN;
+
+        $json = json_encode($roleAdmin);
+
+        $this->assertEquals('"' . $roleAdmin->value . '"', $json);
+    }
 }
