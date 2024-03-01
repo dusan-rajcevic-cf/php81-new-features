@@ -47,4 +47,11 @@ class UserRoleTest extends TestCase
 
         $this->assertTrue($userRole instanceof UserRole);
     }
+
+    public function test_instance_method_print_value(): void
+    {
+        $printValue = UserRole::ADMIN->printValue();
+
+        $this->assertEquals('Administrator', $printValue);
+    }
 }
