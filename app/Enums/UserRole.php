@@ -16,4 +16,13 @@ enum UserRole: string
             self::VISITOR => 'Visitor',
         };
     }
+
+    public static function random(): UserRole
+    {
+        return match (rand(0, 2)) {
+            0 => self::ADMIN,
+            1 => self::MANAGER,
+            2 => self::VISITOR,
+        };
+    }
 }
