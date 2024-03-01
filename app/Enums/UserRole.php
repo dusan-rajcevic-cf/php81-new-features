@@ -8,6 +8,8 @@ enum UserRole: string
     case MANAGER = 'manager';
     case VISITOR = 'visitor';
 
+    public const Default = self::VISITOR;
+
     public function printValue(): string
     {
         return match ($this) {
