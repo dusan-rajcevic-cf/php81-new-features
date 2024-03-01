@@ -54,4 +54,11 @@ class UserRoleTest extends TestCase
 
         $this->assertEquals('Administrator', $printValue);
     }
+
+    public function test_static_method_random(): void
+    {
+        $random = UserRole::random();
+
+        $this->assertTrue($random instanceof UserRole);
+    }
 }
