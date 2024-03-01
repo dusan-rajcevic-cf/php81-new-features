@@ -4,6 +4,8 @@ namespace App\Enums;
 
 enum UserRole: string
 {
+    use PrintName;
+
     case ADMIN = 'admin';
     case MANAGER = 'manager';
     case VISITOR = 'visitor';
