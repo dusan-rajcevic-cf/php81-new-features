@@ -66,4 +66,11 @@ class UserRoleTest extends TestCase
     {
         $this->assertEquals(UserRole::VISITOR, UserRole::Default);
     }
+
+    public function test_print_name_trait(): void
+    {
+        $this->assertEquals(UserRole::ADMIN->name, UserRole::ADMIN->printName());
+        $this->assertEquals(UserRole::MANAGER->name, UserRole::MANAGER->printName());
+        $this->assertEquals(UserRole::VISITOR->name, UserRole::VISITOR->printName());
+    }
 }
