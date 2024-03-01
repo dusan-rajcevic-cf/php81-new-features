@@ -25,4 +25,12 @@ class UserTest extends TestCase
 
         $this->assertEquals(UserRole::ADMIN, $this->user->role);
     }
+
+    public function test_user_role_does_not_allow_undefined_role_values(): void
+    {
+        $missingRole = 'editor';
+        $this->expectException(ValueError::class);
+        $this->expectExceptionMessage('"' . $missingRole . '" is not a valid backing value for enum ' . UserRole::class);
+        $this->user->role = $missingRole;
+    }
 }
