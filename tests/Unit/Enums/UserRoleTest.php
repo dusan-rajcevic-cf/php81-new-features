@@ -85,4 +85,15 @@ class UserRoleTest extends TestCase
 
         $this->assertMatchesRegularExpression($expected, $serialized);
     }
+
+    public function test_deserialization(): void
+    {
+        $roleAdmin = UserRole::ADMIN;
+
+        $serialized = serialize($roleAdmin);
+
+        $deserialized = unserialize($serialized);
+
+        $this->assertEquals($roleAdmin, $deserialized);
+    }
 }
