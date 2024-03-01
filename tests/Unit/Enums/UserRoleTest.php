@@ -116,4 +116,14 @@ class UserRoleTest extends TestCase
 
         $this->assertEquals($roleAdmin->value, $deserialized);
     }
+
+    public function test_cases(): void
+    {
+        $cases = UserRole::cases();
+
+        $this->assertEquals(
+            [UserRole::ADMIN, UserRole::MANAGER, UserRole::VISITOR],
+            $cases
+        );
+    }
 }
