@@ -73,4 +73,16 @@ class UserRoleTest extends TestCase
         $this->assertEquals(UserRole::MANAGER->name, UserRole::MANAGER->printName());
         $this->assertEquals(UserRole::VISITOR->name, UserRole::VISITOR->printName());
     }
+
+    public function test_serialization(): void
+    {
+        $roleAdmin = UserRole::ADMIN;
+
+        $serialized = serialize($roleAdmin);
+
+        // E:24:"App\Enums\UserRole:ADMIN";
+        $expected = '/E:[0-9]+:\"' . str_replace('\\', '\\\\', UserRole::class) . ':ADMIN\";/';
+
+        $this->assertMatchesRegularExpression($expected, $serialized);
+    }
 }
