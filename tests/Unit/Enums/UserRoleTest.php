@@ -61,4 +61,9 @@ class UserRoleTest extends TestCase
 
         $this->assertTrue($random instanceof UserRole);
     }
+
+    public function test_const_default(): void
+    {
+        $this->assertEquals(UserRole::VISITOR, UserRole::Default);
+    }
 }
